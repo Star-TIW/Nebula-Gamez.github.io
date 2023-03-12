@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tab Cloaker</title>
+  <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/2STzyP8b/Screenshot-2023-03-09-5-39-34-AM-ts1678400636.png" />
+<style>
+.Cloaker {
+  float: right;
+  width: 50%; /* optional: set the width of the container */
+}
+
+    /* Styles for the form container */
+    .form-container {
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background-color: #fff;
+      animation: slide-up 0.5s ease-out;
+    }
+
+    /* Animation keyframes for the form container */
+    @keyframes slide-up {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Styles for the form inputs */
+    input[type="text"],
+    input[type="url"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: border-color 0.2s ease-out;
+    }
+
+    input[type="text"]:focus,
+    input[type="url"]:focus {
+      outline: none;
+      border-color: #777;
+    }
+
+    /* Placeholder styles */
+    ::placeholder {
+      color: #bbb;
+      font-style: italic;
+    }
+
+    /* Styles for the submit button */
+    .button {
+      display: block;
+      cursor: pointer;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: Marvel;
+      font-size: 20pt;
+      width: 100%;
+      height: 45px;
+      position: relative;
+      border: solid #777 2px;
+      color: #777;
+      z-index: 1;
+      transition: all 0.5s ease-in-out;
+      border-radius: 5px;
+      background-image: -webkit-linear-gradient(30deg, transparent 50%, red 50%);
+      background-image: linear-gradient(30deg, transparent 50%, red 50%);
+      background-size: 298%;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: 0%;
+    }
+
+    .button:hover {
+      background-position: 100%;
+      color: #f1f1f1;
+      border-color: red;
+    }
+
+    .button:active {
+      background-color: #00a7fc;
+      color: #333;
+      background-position: 0%;
+      border-color: #00a7fc;
+    }
+
+    .button:focus {
+      outline: none;
+    }
+  /* Styles for the preset container */
+    .preset-container {
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background-color: #fff;
+      animation: slide-up 0.5s ease-out;
+    }
+
+    /* Animation keyframes for the preset container */
+    @keyframes slide-up {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Styles for the preset buttons */
+    .preset {
+      display: inline-block;
+      cursor: pointer;
+      margin-right: 10px;
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      transition: transform 0.2s ease-out;
+    }
+
+    .preset img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .preset:hover {
+      transform: scale(1.2);
+    }
+iframe {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 50%;
+			height: 100%;
+		}
+  </style>
+</head>
+<body>
+<div class="Cloaker">
+  <div class="form-container">
+    <!-- Form content here -->
+    <form>
+      <label for="title">Title of Tab:</label>
+      <input type="text" id="title" name="title" placeholder="Enter the title of the tab">
+
+      <label for="icon">Icon Link:</label>
+      <input type="url" id="icon" name="icon" placeholder="Enter the link to the icon">
+
+      <label for="web">Web Link:</label>
+      <input type="url" id="web" name="web" placeholder="Enter the link to the website">
+
+      <button class="button" type="button" onclick="opengame()">Cloak</button>
+    </form>
+  </div>
+
+  <div class="preset-container">
+    <!-- Preset content here -->
+<button class="preset" type="button" onclick="preset1()">
+      <img src="https://ssl.gstatic.com/classroom/ic_product_classroom_32.png" alt="Google Classroom">
+    </button>
+    <button class="preset" type="button" onclick="preset2()">
+      <img src="https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico" alt="Canvas">
+    </button>
+    <button class="preset" type="button" onclick="preset3()">
+      <img src="https://campus.tvusd.k12.ca.us/campus/nav-wrapper/favicon.ico" alt="Infinite Campus">
+    </button>
+    <button class="preset" type="button" onclick="preset4()">
+  <img src="https://assets.clever.com/launchpad/d0a3cd891/favicon.ico?1" alt="Clever">
+</button>
+<button class="preset" type="button" onclick="preset5()">
+  <img src="https://uploads.desmos.com/fingerprinted/static/classroom-assets/img/student/favicon-450881478525dad90cee9f937b93639c4042aedf-a.ico" alt="Desmos Classroom Activities">
+</button>
+<button class="preset" type="button" onclick="preset6()">
+  <img src="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico" alt="Google Docs">
+</button>
+<button class="preset" type="button" onclick="preset7()">
+  <img src="https://www.deltamath.com/app/images/flav3.png" alt="DeltaMath">
+</button>
+<button class="preset" type="button" onclick="preset8()">
+  <img src="https://google.com/favicon.ico" alt="Google">
+</button>
+<button class="preset" type="button" onclick="preset9()">
+  <img src="https://denali-static.grammarly.com/files/524adc79be04712e3a336059c2959e2e/favicon.ico" alt="Grammarly">
+</button>
+<button class="preset" type="button" onclick="preset10()">
+  <img src="https://login.i-ready.com/favicon.ico" alt="Reading To Do, i-Ready">
+</button>
+  </div>
+</div>
+<button onclick="scrollToSection()">Learn More</button>
+
+  <script>
+    function opengame() {
+      var title = document.getElementById("title").value;
+      var icon = document.getElementById("icon").value;
+      var web = document.getElementById("web").value;
+
+      if (!title || !icon || !web) {
+        alert("Please fill out all fields before cloaking.");
+        return;
+      }
+  
+      document.querySelector("form").reset();
+
+      var newWindow = window.open('about:blank');
+      newWindow.document.title = title;
+
+      var linkTag = document.createElement('link');
+      linkTag.setAttribute('rel', 'icon');
+      linkTag.setAttribute('type', 'image/x-icon');
+      linkTag.setAttribute('href', icon);
+      newWindow.document.head.appendChild(linkTag);
+
+      var iframe = document.createElement('iframe');
+      iframe.src = web;
+      iframe.style.position = 'absolute';
+      iframe.style.top = '0';
+      iframe.style.left = '0';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.border = 'none';
+      iframe.style.margin = '0';
+      iframe.style.padding = '0';
+      newWindow.document.body.appendChild(iframe);
+    }
+function preset1() {
+      document.getElementById("title").value = "Classes";
+      document.getElementById("icon").value = "https://ssl.gstatic.com/classroom/ic_product_classroom_32.png";
+      document.getElementById("web").value = "";
+    }
+
+    function preset2() {
+      document.getElementById("title").value = "Dashboard";
+      document.getElementById("icon").value = "https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico";
+      document.getElementById("web").value = "";
+    }
+
+    function preset3() {
+      document.getElementById("title").value = "Infinite Campus";
+      document.getElementById("icon").value = "https://campus.tvusd.k12.ca.us/campus/nav-wrapper/favicon.ico";
+      document.getElementById("web").value = "";
+    }
+
+     function preset4() {
+  document.getElementById("title").value = "Clever | Portal";
+  document.getElementById("icon").value = "https://assets.clever.com/launchpad/d0a3cd891/favicon.ico?1";
+  document.getElementById("web").value = "";
+}
+
+function preset5() {
+  document.getElementById("title").value = "Desmos Classroom Activities";
+  document.getElementById("icon").value = "https://uploads.desmos.com/fingerprinted/static/classroom-assets/img/student/favicon-450881478525dad90cee9f937b93639c4042aedf-a.ico";
+  document.getElementById("web").value = "";
+}
+
+function preset6() {
+  document.getElementById("title").value = "Google Docs";
+  document.getElementById("icon").value = "https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico";
+  document.getElementById("web").value = "";
+}
+
+function preset7() {
+  document.getElementById("title").value = "DeltaMath";
+  document.getElementById("icon").value = "https://www.deltamath.com/app/images/flav3.png";
+  document.getElementById("web").value = "";
+}
+
+function preset8() {
+  document.getElementById("title").value = "Google";
+  document.getElementById("icon").value = "https://google.com/favicon.ico";
+  document.getElementById("web").value = "";
+}
+function preset9() {
+  document.getElementById("title").value = "- Grammarly";
+  document.getElementById("icon").value = "https://denali-static.grammarly.com/files/524adc79be04712e3a336059c2959e2e/favicon.ico";
+  document.getElementById("web").value = "";
+}
+function preset10() {
+  document.getElementById("title").value = "Reading To Do, i-Ready";
+  document.getElementById("icon").value = "https://login.i-ready.com/favicon.ico";
+  document.getElementById("web").value = "";
+}
+  </script>
+<iframe src="favicon.html" frameborder="0"></iframe>
+</body>
+</html>
