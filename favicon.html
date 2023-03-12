@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>Favicon Finder</title>
+  <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/2STzyP8b/Screenshot-2023-03-09-5-39-34-AM-ts1678400636.png" />
+    <style>
+      /* Center the content */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #222;
+  color: #fff;
+}
+/* Add some styles to the h1 element */
+h1 {
+  font-size: 3em;
+  text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5);
+  margin-bottom: 1em;
+}
+/* Add some styles to the input element */
+input {
+  width: 80%;
+  font-size: 1.5em;
+  padding: 1em;
+  margin-bottom: 1em;
+  border: none;
+  border-radius: 1rem;
+  background-color: #444;
+  color: #fff;
+  box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.5), 0 0.125em 0.25em rgba(0, 0, 0, 0.4);
+  transition: background-color 0.2s ease;
+}
+input:focus {
+  outline: none;
+  background-color: #555;
+}
+/* Add some styles to the preview image */
+#preview {
+  display: block;
+  margin: 1em auto; /* center the image horizontally */
+  max-width: 300px;
+  border: 0.25rem solid #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s ease;
+}
+#preview:hover {
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.5), 0 0.25em 0.5em rgba(0, 0, 0, 0.4);
+}
+#preview[title]:before {
+  color: #fff;
+}
+#preview:empty {
+  border: none;
+}
+    </style>
+  </head>
+  <body>
+    <h1>Favicon Finder</h1>
+    <input type="text" id="url" placeholder="Enter a URL and press Enter">
+    <img id="preview" src="" alt="">
+    <script>
+      // Get the input and preview elements
+const input = document.getElementById("url");
+const preview = document.getElementById("preview");
+
+// Define a function to set the preview to the favicon of the entered URL
+function setPreview(url) {
+  // If the URL is empty, clear the preview
+  if (url === "") {
+    preview.src = "";
+    return;
+  }
+  // Set the preview to the favicon of the URL
+  preview.src = `https://www.google.com/s2/favicons?sz=256&domain=${url}`;
+}
+// Listen for changes to the input field and update the preview
+input.addEventListener("input", () => {
+  const url = input.value.trim();
+  setPreview(url);
+});
+// Listen for Enter key press on the input field and update the preview
+input.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    const url = input.value.trim();
+    setPreview(url);
+  }
+});
+// Add event listener to the preview image to copy the favicon link to clipboard on click
+preview.addEventListener("click", () => {
+  const link = `https://www.google.com/s2/favicons?sz=256&domain=${input.value.trim()}`;
+  navigator.clipboard.writeText(link);
+  preview.title = "Click image to copy image URL";
+  preview.addEventListener("mouseout", () => {
+    preview.title = "";
+  });
+  // Create an element to display the "Copied" animation
+  const animation = document.createElement("div");
+  animation.innerText = "Copied";
+  animation.style.position = "fixed";
+  animation.style.top = "1rem";
+  animation.style.right = "1rem";
+  animation.style.padding = "0.5rem 1rem";
+  animation.style.background = "#0f0";
+  animation.style.color = "#fff";
+  animation.style.borderRadius = "5px";
+  animation.style.boxShadow =
+    "0 0.125rem 0.25rem rgba(0, 0, 0, 0.3), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2)";
+  document.body.appendChild(animation);
+  setTimeout(() => {
+    animation.remove();
+  }, 2000);
+});
+// Add event listener to the preview image to display hover text
+preview.addEventListener("mouseover", () => {
+  preview.title = "Click image to copy image URL";
+  preview.style.cursor = "pointer";
+});
+preview.addEventListener("mouseout", () => {
+  preview.title = "";
+  preview.style.cursor = "default";
+});
+    </script>
+  </body>
+</html>
