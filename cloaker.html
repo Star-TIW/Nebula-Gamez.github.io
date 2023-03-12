@@ -4,6 +4,71 @@
     <meta charset="UTF-8">
     <title>NebulaGamez | Cloaker</title>
     <link rel="stylesheet" href="style.css">
+<style>
+p {
+  font-size: 16px; /* reduce font size by 2 pixels */
+}
+button {
+  background-color: #FFA500; /* light orange */
+  color: #FFF; /* white text */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+button:hover {
+  background-color: #000; /* black on hover */
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+@keyframes button-pulse {
+  0% { box-shadow: 0 0 0 rgba(255, 165, 0, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 165, 0, 0); }
+  100% { box-shadow: 0 0 0 rgba(255, 165, 0, 0); }
+}
+
+.button-pulse {
+  animation-name: button-pulse;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // get references to the button and content elements
+  const descriptionButton = document.getElementById('description-button');
+  const description = document.getElementById('description');
+  const instructionsButton = document.getElementById('instructions-button');
+  const instructions = document.getElementById('instructions');
+
+  // add click event listeners to the buttons
+  descriptionButton.addEventListener('click', () => {
+    // toggle the visibility of the description content
+    description.style.display = description.style.display === 'none' ? 'block' : 'none';
+    // update the button text
+    descriptionButton.textContent = description.style.display === 'none' ? 'See Description' : 'Hide Description';
+  });
+
+  instructionsButton.addEventListener('click', () => {
+    // toggle the visibility of the instructions content
+    instructions.style.display = instructions.style.display === 'none' ? 'block' : 'none';
+    // update the button text
+    instructionsButton.textContent = instructions.style.display === 'none' ? 'See Instructions' : 'Hide Instructions';
+  });
+});
+</script>
   </head>
   <body>
     <header>
@@ -11,29 +76,31 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/proxies">Proxies</a></li>
-          <li><a href="/cloaker">Cloaker</a></li>
+          <li class="active"><a href="/cloaker">Cloaker</a></li>
           <li><a href="/games">Games</a></li>
-          <li class="active"><a href="/request">Request a Game</a></li>
+          <li><a href="/request">Request a Game</a></li>
           <li><a href="/contact">Contact Me</a></li>
-          <li><a href="/changelog">Change Log</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <h1>Cloaker</h1>
-      <p>Cloaking is a technique used to make a website appear different to search engine crawlers and human visitors. It can be used to display different content to different users, or to hide content from search engine crawlers. There are various cloaking methods, including IP cloaking, user-agent cloaking, and referrer cloaking.</p>
-      <p>Using cloaking on your website can provide several benefits, including increased search engine visibility, better user experience, and protection from competitors. However, cloaking can also be risky if not implemented correctly, as it can result in penalties from search engines or even legal action.</p>
-      <h2>Types of Cloaking</h2>
-      <ul>
-        <li><strong>IP cloaking:</strong> This method involves displaying different content to users based on their IP address.</li>
-        <li><strong>User-agent cloaking:</strong> This method involves displaying different content to users based on their web browser or device.</li>
-        <li><strong>Referrer cloaking:</strong> This method involves displaying different content to users based on their referral source (i.e., where they came from).</li>
-      </ul>
-      <h2>Setting Up Cloaking</h2>
-      <p>Setting up cloaking on your website can be done through your web server or through a third-party cloaking provider. Consult the documentation for your web server or cloaking provider for specific instructions on how to set up cloaking.</p>
-    </main>
-    <footer>
-      <!-- footer content code here -->
-    </footer>
-  </body>
+      <h1>Description</h1>
+<button id="description-button" class="button-pulse">See Description</button>
+<p id="description" style="display: none;">The NebulaGamez website offers a unique feature in the form of an about:blank tab cloaker. This feature allows users to create a disguised version of any specified website by creating an about:blank tab with a custom title and favicon, enabling discreet browsing without revealing the actual website being visited. With the ability to choose from a selection of presets or create a custom title and favicon, users can easily tailor their cloaked tabs to their liking. This can be particularly helpful for students who want to browse the internet without their teachers knowing which websites they are visiting. With the about:blank tab cloaker, you have complete control over your privacy and can browse the web with peace of mind.</p>
+
+<h2>How to use</h2>
+<button id="instructions-button" class="button-pulse">See Instructions</button>
+<ol id="instructions" style="display: none;">
+  <li>Enter the URL of the website you want to cloak in the "Enter link to website" field.</li>
+  <li>Click the "Find Favicon" button to open the Favicon Finder.</li>
+  <li>When the Favicon Finder appears, click on the desired favicon to copy its link to your clipboard.</li>
+  <li>Paste the favicon link into the "Enter link for icon" field.</li>
+  <li>Enter a custom title for the cloaked tab in the "Enter title for tab" field.</li>
+  <li>Click the "Cloak" button to create the about:blank tab with the specified title and favicon.</li>
+  <li>Enjoy discreet browsing!</li>
+</ol>
+</main>
+<h2>Super Cloaker</h2>
+<iframe width="100%" height="100%" style="border: none; margin-top: 20px;" src="super-cloak.html"></iframe>
+</body>
 </html>
